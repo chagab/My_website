@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Gabriel Chatelain's website</title>
+        <meta name="description" content="Gabriel Chatelain's website">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+        <link rel="icon" href="{% static 'blog/logo.svg' %}">
+    </head>
+    <body>
+
+    {% block navbar %}
+      {% include 'blog/base_navbar.html' %}
+    {% endblock %}
+
+    {% block hero %}
+      {% include 'blog/base_hero.html' %}
+    {% endblock %}
+    
+    {% block about%}
+        {% include 'blog/base_about.html' %}
+    {% endblock %}
+        
+    {% block blog_post %}
+        {% include 'blog/base_blog_post.html' %}
+    {% endblock %}
+        
+    <div id="contact"></div>
+    
+    {% load static %}
+    <script type="module" src="{% static 'blog/location.js' %}"></script>
+    <script type="module" src="{% static 'blog/colorTransition.js' %}"></script>
+    </body>
+</html>

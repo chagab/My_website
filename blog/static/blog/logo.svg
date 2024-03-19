@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="63.646641mm"
+   height="63.646641mm"
+   viewBox="0 0 63.646641 63.646641"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="logo.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.4576538"
+     inkscape:cx="189.00235"
+     inkscape:cy="137.89282"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-51.837876,-55.688348)">
+    <g
+       id="g1015"
+       transform="matrix(0.85388832,0,0,0.85388832,12.223878,12.786477)"
+       style="stroke-width:1.17111">
+      <rect
+         style="fill:#103047;stroke-width:0.117111;stroke-linecap:round;fill-opacity:1"
+         id="rect954"
+         width="52.705921"
+         height="52.705921"
+         x="-29.075655"
+         y="94.684532"
+         transform="rotate(-45)" />
+      <rect
+         style="fill:#2a91d5;stroke-width:0.117111;stroke-linecap:round;fill-opacity:1"
+         id="rect952"
+         width="45.808422"
+         height="45.808422"
+         x="-25.626905"
+         y="98.133278"
+         transform="rotate(-45)" />
+      <rect
+         style="fill:#103047;stroke-width:0.117111;stroke-linecap:round;fill-opacity:1"
+         id="rect236"
+         width="40"
+         height="40"
+         x="-22.722694"
+         y="101.03749"
+         transform="rotate(-45)" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:31.1191px;font-family:Arial;-inkscape-font-specification:Arial;fill:#2a91d5;stroke-width:0.1;stroke-linecap:round;fill-opacity:1"
+       x="71.338173"
+       y="97.889755"
+       id="text1010"><tspan
+         sodipodi:role="line"
+         id="tspan1008"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:31.1191px;font-family:'Baskerville Old Face';-inkscape-font-specification:'Baskerville Old Face';fill:#2a91d5;stroke-width:0.1;fill-opacity:1"
+         x="71.338173"
+         y="97.889755">G</tspan></text>
+  </g>
+</svg>
