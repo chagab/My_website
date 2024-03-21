@@ -2,12 +2,13 @@
 <div id="blog">
     {% for post in posts %}
     <div class="post">
-        <h2 class="subtitle">
-            {{ post.title }}
-        </h2>
-        <small>Posted on {{ post.date_added }}</small>
-        <p> {{ post.intro }}</p>
-        <a href="{% url 'post_detail' post.slug %}" class="button">Read more</a>
+        <a href="{% url 'post_detail' post.slug %}" class="button">
+            <h2 class="subtitle">
+                {{ post.title }}
+            </h2>
+            <small>Posted on {{ post.date_added }}</small>
+            <p> {{ post.intro }}</p>
+        </a>
     </div>
     {% endfor %}
 </div>

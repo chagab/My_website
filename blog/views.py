@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Post, Intro
+from .static.blog.writing_with_BEC.script import plot_div_dark  # , plot_div_light
 # Create your views here.
 
 
@@ -16,7 +17,8 @@ def frontpage(request):
     context = {
         'intro': intro,
         'posts': posts,
-        'ip': ip
+        'plot_div_dark': plot_div_dark,
+        # 'plot_div_light': plot_div_light
     }
     return render(request, 'blog/base.html', context)
 

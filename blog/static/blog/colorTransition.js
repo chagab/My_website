@@ -1,65 +1,13 @@
-getUserLocation();
+fetchColorTransition();
 
-function getUserLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(makeAPIcall);
-    } else {
-        console.log("Geolocation is not supported by this browser.");
-    }
-}
-
-function makeAPIcall(position) {
-    const API_base_url = 'https://api.sunrise-sunset.org/json?';
-    const API_params = {
-        "lat": position.coords.latitude,
-        "lng": position.coords.longitude,
-        "tzid": Intl.DateTimeFormat().resolvedOptions().timeZone
-    }
-
-    let API_call = API_base_url;
-    for (const [k, v] of Object.entries(API_params)) {
-        API_call += `${k}=${v}&`;
-    }
-
-    fetch(API_call)
-        .then(response => response.json())
-        .then(json => formatResponse(json))
-        .then(times => fetchColorTransition(times));
-}
-
-function formatResponse(json) {
-    const sunrise = stringToDate(json.results.sunrise);
-    const sunset = stringToDate(json.results.sunset);
-    const now = new Date();
-
-    return {
-        'sunrise': sunrise,
-        'sunset': sunset,
-        'now': now
-    }
-}
-
-function stringToDate(s) {
-    const [hours, minutes, s_am_pm] = s.split(":");
-    const [seconds, am_pm] = s_am_pm.split(" ");
-
-    const t = new Date();
-    t.setHours(Number(hours) + (am_pm === "AM" ? 0 : 12));
-    t.setMinutes(Number(minutes));
-    t.setSeconds(Number(seconds));
-
-    return t
-}
-
-function fetchColorTransition(times) {
-
+function fetchColorTransition() {
     fetch('./static/blog/colorTransition.json')
         .then(response => response.json())
         .then(json => gatherParams(json))
         .then(params => {
             // pass an object to be modified by reference
             let timer = { _: null };
-            modifyColors(params, timer, times);
+            modifyColors(params, timer);
         });
 }
 
@@ -69,6 +17,7 @@ function gatherParams(json) {
 
     const backgroundsElements = [
         document.body,
+        document.getElementsByTagName('html')[0],
         document.getElementById('navbar')
     ];
 
@@ -76,30 +25,30 @@ function gatherParams(json) {
         document.getElementsByTagName('h1'),
         document.getElementsByTagName('h2'),
         document.getElementsByTagName('p'),
+        // TODO - for some reason, the <a> from the base_hero change color slower...
+        // fixe that 
+        document.getElementsByTagName('a'),
         document.getElementsByTagName('small'),
-        document.getElementsByClassName('navbar-links'),
-        document.getElementsByClassName('post')
+        // document.getElementsByClassName('post'),
+        // document.getElementsByClassName('navbar-links'),
+        // [document.getElementById('arrow-text')],
     ];
 
-    return [p1, p2, backgroundsElements, fontElements];
+    const svgElements = document.querySelectorAll('#outside-links object');
+
+    return [p1, p2, backgroundsElements, fontElements, svgElements];
 }
 
-function modifyColors(params, timer, times) {
-    const transitionRate = 0.1;
-    document.addEventListener(
-        "keydown",
-        (event) => {
-            const keyName = event.key;
-            if (keyName === "a") {
-                timer._ = setInterval(transitionColor, transitionRate, params, timer, times);
-            }
-        }
-    )
+function modifyColors(params, timer) {
+    const color_button = document.getElementById('toggle-color');
+    color_button.onclick = function () {
+        const transitionRate = 10;
+        timer._ = setInterval(transitionColor, transitionRate, params, timer);
+    };
 }
 
-function transitionColor(params, timer, times) {
-    // console.log(times);
-    const [p1, p2, backgroundsElements, fontElements] = params;
+function transitionColor(params, timer) {
+    const [p1, p2, backgroundsElements, fontElements, svgElements] = params;
     const gradientLength = p1['r'].length;
 
     if (typeof transitionColor.counter == 'undefined') {
@@ -129,6 +78,7 @@ function transitionColor(params, timer, times) {
     const [p1Color, p2Color] = makeRGBString(transitionColor.counter, p1, p2);
     changeBackgroundColor(backgroundsElements, p1Color);
     changeFontColor(fontElements, p2Color);
+    // changeSvgGradient(svgElements, gradientLength, transitionColor.up);
 
 }
 
@@ -155,3 +105,39 @@ function changeFontColor(fontElements, color) {
         }
     }
 }
+
+function changeSvgGradient(svgElements, gradientLength, up) {
+    // TDOD - debug this function 
+    for (const element of svgElements) {
+        const svg = element.getSVGDocument();
+        const gradientCollection = svg.getElementsByTagName('linearGradient');
+        const n = gradientCollection.length
+        const gradient = gradientCollection[n - 1];
+        const x1 = gradient.x1;
+        const y1 = gradient.y1;
+        const x2 = gradient.x2;
+        const y2 = gradient.y2;
+
+        if (typeof transitionColor.step_x == 'undefined') {
+            transitionColor.step_x = Math.abs(x2 - x1) / gradientLength;
+        }
+
+        if (typeof transitionColor.step_y == 'undefined') {
+            transitionColor.step_y = Math.abs(y2 - y1) / gradientLength;
+        }
+
+        if (up) {
+            gradient.setAttribute('x1', gradient.x1 + transitionColor.step_x);
+            gradient.setAttribute('y1', gradient.y1 + transitionColor.step_y);
+            gradient.setAttribute('x2', gradient.x2 - transitionColor.step_x);
+            gradient.setAttribute('y2', gradient.y2 - transitionColor.step_y);
+        } else {
+            gradient.setAttribute('x1', gradient.x1 - transitionColor.step_x);
+            gradient.setAttribute('y1', gradient.y1 - transitionColor.step_y);
+            gradient.setAttribute('x2', gradient.x2 + transitionColor.step_x);
+            gradient.setAttribute('y2', gradient.y2 + transitionColor.step_y);
+        }
+    }
+}
+
+// TODO - write a function to change the color of the plotly atoms figure
