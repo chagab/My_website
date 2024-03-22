@@ -25,13 +25,10 @@ function gatherParams(json) {
         document.getElementsByTagName('h1'),
         document.getElementsByTagName('h2'),
         document.getElementsByTagName('p'),
-        // TODO - for some reason, the <a> from the base_hero change color slower...
-        // fixe that 
-        document.getElementsByTagName('a'),
         document.getElementsByTagName('small'),
-        // document.getElementsByClassName('post'),
+        document.getElementsByClassName('post'),
         // document.getElementsByClassName('navbar-links'),
-        // [document.getElementById('arrow-text')],
+        // document.getElementsByClassName('outside-links')
     ];
 
     const svgElements = document.querySelectorAll('#outside-links object');
@@ -42,7 +39,7 @@ function gatherParams(json) {
 function modifyColors(params, timer) {
     const color_button = document.getElementById('toggle-color');
     color_button.onclick = function () {
-        const transitionRate = 10;
+        const transitionRate = 0.1;
         timer._ = setInterval(transitionColor, transitionRate, params, timer);
     };
 }
@@ -72,6 +69,7 @@ function transitionColor(params, timer) {
         transitionColor.counter >= gradientLength) {
         transitionColor.up = !transitionColor.up;
         clearInterval(timer._);
+        updateImshowCmap(transitionColor.up)
     }
 
 
@@ -79,7 +77,6 @@ function transitionColor(params, timer) {
     changeBackgroundColor(backgroundsElements, p1Color);
     changeFontColor(fontElements, p2Color);
     // changeSvgGradient(svgElements, gradientLength, transitionColor.up);
-
 }
 
 function makeRGBString(i, p1, p2) {
@@ -140,4 +137,14 @@ function changeSvgGradient(svgElements, gradientLength, up) {
     }
 }
 
-// TODO - write a function to change the color of the plotly atoms figure
+function updateImshowCmap(up) {
+    const graphDiv = document.getElementsByClassName('plotly-graph-div js-plotly-plot')[0];
+    if (up) {
+        const cmap = [[0, 'rgb(40, 40, 40)'], [1, 'rgb(200, 200, 200)']];
+        graphDiv.layout.coloraxis.colorscale = cmap;
+    } else {
+        const cmap = [[0, 'rgb(200, 200, 200)'], [1, 'rgb(40, 40, 40)']];
+        graphDiv.layout.coloraxis.colorscale = cmap;
+    }
+    Plotly.redraw(graphDiv)
+}

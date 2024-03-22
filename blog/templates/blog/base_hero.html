@@ -3,16 +3,29 @@
     {% load static %}
     
     {% autoescape off %}
-        {{ plot_div_dark }}
-        <!-- {{ plot_div_light }} -->
+        {% if plot_div_dark %}
+            {{ plot_div_dark|safe }}
+            <object type="image/svg+xml" id="arrow" data="{% static 'blog/svg/arrow.svg' %}"></object>
+            <a id="arrow-text"><p>This text was written with atoms! Click to know more</p></a>
+        {% else %}
+            <h1 style="font-size: 5em;">Gabriel Chatelain</h1>
+        {% endif %}
     {% endautoescape %}
-    <object type="image/svg+xml" id="arrow" data="{% static 'blog/svg/arrow.svg' %}"></object>
-    <a id="arrow-text">This text was written with atoms! Click to know more</a>
+
     <h1>Quantum engineer, scientist and sunday surfer</h1>
     <div id="outside-links">
-        <object type="image/svg+xml" data="{% static 'blog/svg/Github.svg' %}"></object><a class="outside-links" href="https://github.com/chagab" target="_blank">Github</a>
-        <object type="image/svg+xml" data="{% static 'blog/svg/LinkedIn.svg' %}"></object><a class="outside-links" href="https://www.linkedin.com/in/gabriel-chatelain-161386192/" target="_blank">LinkedIn</a>
-        <object type="image/svg+xml" data="{% static 'blog/svg/Google_Scholar.svg' %}"></object><a class="outside-links" href="https://scholar.google.com/citations?user=Av4--DUAAAAJ&hl=en&oi=ao" target="_blank">Google Scholar</a>
+        <a class="outside-links" href="https://github.com/chagab" target="_blank">
+            <object type="image/svg+xml" data="{% static 'blog/svg/Github.svg' %}"></object>
+            <p>Github</p>
+        </a>
+        <a class="outside-links" href="https://www.linkedin.com/in/gabriel-chatelain-161386192/" target="_blank">
+            <object type="image/svg+xml" data="{% static 'blog/svg/LinkedIn.svg' %}"></object>
+            <p>LinkedIn</p>
+        </a>
+        <a class="outside-links" href="https://scholar.google.com/citations?user=Av4--DUAAAAJ&hl=en&oi=ao" target="_blank">
+            <object type="image/svg+xml" data="{% static 'blog/svg/Google_Scholar.svg' %}"></object>
+            <p>Google Scholar</p>
+        </a>
     </div>
 </div>
 {% endblock %}
