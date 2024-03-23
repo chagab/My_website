@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="43.290573mm"
+   height="40.285309mm"
+   viewBox="0 0 43.290573 40.285309"
+   version="1.1"
+   id="svg13205"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="arrow.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13207"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="4.1228676"
+     inkscape:cx="66.094773"
+     inkscape:cy="64.275651"
+     inkscape:window-width="2560"
+     inkscape:window-height="1351"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs13202">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient13707"
+       id="linearGradient1516"
+       x1="242.30656"
+       y1="86.751381"
+       x2="282.59189"
+       y2="43.460812"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="rotate(90,118.10614,-42.179735)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient13707">
+      <stop
+         style="stop-color:#274eab;stop-opacity:1;"
+         offset="0"
+         id="stop13703" />
+      <stop
+         style="stop-color:#ae4eab;stop-opacity:1;"
+         offset="1"
+         id="stop13705" />
+    </linearGradient>
+    <marker
+       style="overflow:visible"
+       id="RoundedArrow"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="RoundedArrow"
+       markerWidth="6.1347523"
+       markerHeight="5.9304953"
+       viewBox="0 0 6.1347524 5.9304951"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.7)"
+         d="m -0.21114562,-4.1055728 6.42229122,3.21114561 a 1,1 90 0 1 0,1.78885438 L -0.21114562,4.1055728 A 1.236068,1.236068 31.717474 0 1 -2,3 v -6 a 1.236068,1.236068 148.28253 0 1 1.78885438,-1.1055728 z"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:none"
+         id="path1367" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(10.82498,-82.02069)">
+    <path
+       style="fill:none;stroke:url(#linearGradient1516);stroke-width:1.453;stroke-linecap:round;stroke-dasharray:none;marker-end:url(#RoundedArrow)"
+       d="m 31.739092,121.5795 c 0,-21.07367 -7.917684,-35.250305 -35.6844767,-35.250305"
+       id="path620"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
