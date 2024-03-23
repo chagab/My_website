@@ -1,14 +1,16 @@
 {% block blog_post %}
-<div id="blog">
-    <h2>Recent posts</h2>
-    {% for post in posts %}
-    <div class="post">
-        <a href="{% url 'post_detail' post.slug %}" class="button">
-            <h2 class="subtitle">{{ post.title }}</h2>
-            <small>Posted on {{ post.date_added }}</small>
-            <p class="post-intro"> {{ post.intro }}</p>
-        </a>
+<center>
+    <div id="blog">
+        <h3>Recent posts</h3>
+        {% for post in posts %}
+        <div class="post">
+            <a href="{% url 'post_detail' post.slug %}" class="button">
+                <h4 class="subtitle">{{ post.title }}</h4>
+                <small>Posted on {{ post.date_added }}</small>
+                <p class="post-intro"> {{ post.intro }}</p>
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
+</center>
 {% endblock %}

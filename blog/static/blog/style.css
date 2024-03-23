@@ -1,194 +1,194 @@
 @font-face {
-  font-family: 'MyWebFont';
-  src: url('./fonts/Open_Sans/static/OpenSans-Regular.ttf');
+    font-family: 'MyWebFont';
+    src: url('./fonts/Open_Sans/static/OpenSans-Regular.ttf');
 }
 
 html, body {
-  font-family: 'MyWebFont', Fallback, 'Times New Roman', Times, serif;
-  background-color: rgb(40, 40, 40);
-  color: rgb(200, 200, 200);
+    font-family: 'MyWebFont', Fallback, 'Times New Roman', Times, serif;
+    background-color: rgb(40, 40, 40);
+    color: rgb(200, 200, 200);
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
-/* The navigation bar */
-#navbar {
-  overflow: hidden;
-  background-color: rgb(40, 40, 40);
-  position: fixed;
-  /* Set the navbar to fixed position */
-  top: 0;
-  /* Position the navbar at the top of the page */
-  width: 100%;
-  /* Full width */
-  display: flex;
-  justify-content: center;
-}
-
-/* Links inside the navbar */
-#navbar a {
-  float: left;
-  display: block;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  color: rgb(200, 200, 200);
-
-  /* Change size on hover-off */
-  transform: scale(1);
-  transition-duration: 0.5s;
-}
-
-/* Change size on hover-on */
-#navbar a:hover {
-  transform: scale(1.1);
-  transition-duration: 0.5s;
-}
-
-#toggle-color:hover{
-  cursor: pointer;
-}
-
-.plotly-graph-div {
-  width: 80%;
-}
-
-#arrow {
-  transform: scale(0.85);
-  position: absolute;
-  rotate: 70deg;
-  left: 75%;
-}
-
-#arrow-text {
-  width: 200px;
-  position: absolute;
-  left: 80%;
-  padding-top: 200px;
-  overflow-wrap: normal;
-  animation: wiggle 3s infinite;
-}
-
-#arrow-text:hover {
-  animation: none;
-  cursor: pointer;
-}
-
-@keyframes wiggle {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  80% {
-    transform: rotate(0deg);
-  }
-
-  85% {
-    transform: rotate(5deg);
-  }
-
-  95% {
-    transform: rotate(-5deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
-#home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  min-height: 75vh;
+a {
+    color: rgb(200, 200, 200);
+    text-decoration: none;
 }
 
 h1 {
-  font-size: 2.25em;
-  container-name: main-title;
-  text-transform: uppercase;
+    font-size: 4em;
 }
 
-@container main-title (min-width: 700px) {
-  h1 {
-    font-size: 2em;
-  }
+h2 {
+    font-size: 2.25em;
+}
+
+h3 {
+    font-size: 1.5em;
+}
+
+h4 {
+    font-size: 1.25em;
+}
+
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(40, 40, 40);
+}
+
+#navbar .navbar-links {
+    text-align: center;
+    margin: 15px 15px;
+
+    /* Change size on hover-off */
+    transform: scale(1);
+    transition-duration: 0.5s;
+}
+
+/* Change size on hover-on */
+#navbar .navbar-links:hover {
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+
+#toggle-color:hover {
+    cursor: pointer;
+}
+
+#home {
+    margin-top: 50px;
+    width: 90vw;
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #home a {
-  color: rgb(200, 200, 200);
-  padding-right: 12px;
-  padding-left: 12px;
-  text-decoration: none;
+    margin-right: 12px;
+    margin-left: 12px;
 }
 
 #home object {
-  padding-right: 5px;
+    margin-right: 5px;
 }
 
 #outside-links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 #outside-links .outside-links {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
-  transform: scale(1) translate(0, 0);
-  transition-duration: 0.5s;
+#outside-links .outside-links {
+    transform: scale(1);
+    transition-duration: 0.5s;
 }
 
 #outside-links .outside-links:hover {
-  transform: scale(1.05) translate(3px, 0);
-  transition-duration: 0.5s;
+    transform: scale(1.05);
+    transition-duration: 0.5s;
+}
+
+@media screen and (max-width: 1200px) {
+    #default-title {
+        display: block;
+    }
+
+    #arrow, #arrow-text {
+        display: none;
+    }
+
+    .plotly-graph-div {
+        display: none;
+    }
+
+    .outside-links p {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    #default-title {
+        display: none;
+    }
+
+    #arrow, #arrow-text {
+        display: block;
+    }
+
+    .plotly-graph-div {
+        display: block;
+    }
+
+    #arrow {
+        transform: scale(0.85);
+        position: absolute;
+        left: 80%;
+    }
+
+    #arrow-text {
+        width: 200px;
+        position: absolute;
+        left: 80%;
+        padding-top: 200px;
+        overflow-wrap: normal;
+        animation: wiggle 3s infinite;
+    }
+
+    #arrow-text:hover {
+        animation: none;
+        cursor: pointer;
+    }
+
+    @keyframes wiggle {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        80% {
+            transform: rotate(0deg);
+        }
+
+        85% {
+            transform: rotate(5deg);
+        }
+
+        95% {
+            transform: rotate(-5deg);
+        }
+
+        100% {
+            transform: rotate(0deg);
+        }
+    }
 }
 
 #about {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-
-a p {
-  font-size: 11pt;
-}
-
-#about p {
-  width: 50%;
-  text-align: justify;
-  font-size: 14pt;
+    width: 90vw;
+    max-width: 1000px;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 #blog {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
-#blog .post {
-  width: 50%;
-  text-align: justify;
-}
-
-.post a {
-  color: rgb(200, 200, 200);
-  text-decoration: none;
-}
-
-.post-intro{
-  font-size: 14pt;
+    width: 90vw;
+    max-width: 1000px;
+    text-align: justify;
+    text-justify: inter-word;
 }

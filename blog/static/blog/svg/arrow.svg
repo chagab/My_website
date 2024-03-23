@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="50.195278mm"
-   height="40.375668mm"
-   viewBox="0 0 50.195278 40.375668"
+   width="43.290573mm"
+   height="40.285309mm"
+   viewBox="0 0 43.290573 40.285309"
    version="1.1"
    id="svg13205"
    inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
@@ -26,7 +26,7 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="4.1228676"
-     inkscape:cx="112.1792"
+     inkscape:cx="66.094773"
      inkscape:cy="64.275651"
      inkscape:window-width="2560"
      inkscape:window-height="1351"
@@ -40,12 +40,12 @@
        inkscape:collect="always"
        xlink:href="#linearGradient13707"
        id="linearGradient1516"
-       x1="232.97417"
-       y1="83.32309"
-       x2="283.16946"
-       y2="42.947418"
+       x1="242.30656"
+       y1="86.751381"
+       x2="282.59189"
+       y2="43.460812"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="translate(-243.9534,39.030693)" />
+       gradientTransform="rotate(90,118.10614,-42.179735)" />
     <linearGradient
        inkscape:collect="always"
        id="linearGradient13707">
@@ -82,10 +82,10 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(10.979227,-81.978113)">
+     transform="translate(10.82498,-82.02069)">
     <path
        style="fill:none;stroke:url(#linearGradient1516);stroke-width:1.453;stroke-linecap:round;stroke-dasharray:none;marker-end:url(#RoundedArrow)"
-       d="M 38.48955,82.704613 C 19.220221,83.856515 4.3507017,94.188308 -7.19997,115.92001"
+       d="m 31.739092,121.5795 c 0,-21.07367 -7.917684,-35.250305 -35.6844767,-35.250305"
        id="path620"
        sodipodi:nodetypes="cc" />
   </g>
