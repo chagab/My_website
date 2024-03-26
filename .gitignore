@@ -1,4 +1,4 @@
-my_website\secret_key.txt
+my_website/secret_key.txt
 
 # Django #
 *.log
