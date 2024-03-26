@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 import django_on_heroku
 from pathlib import Path
 
@@ -21,7 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=goia=r$0!#49#d)&owin!%m4jr&hd5znex^^_^(9_%s-d(4xr'
+# SECRET_KEY = 'django-insecure-=goia=r$0!#49#d)&owin!%m4jr&hd5znex^^_^(9_%s-d(4xr'
+
+with open(os.path.join("my_website", "secret_key.txt")) as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
