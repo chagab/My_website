@@ -1,7 +1,8 @@
 fetchColorTransition();
 
 function fetchColorTransition() {
-    fetch('./static/blog/colorTransition.json')
+    console.log('in');
+    fetch('./static/blog/json/colorTransition.json')
         .then(response => response.json())
         .then(json => gatherParams(json))
         .then(params => {
@@ -27,8 +28,6 @@ function gatherParams(json) {
         document.getElementsByTagName('p'),
         document.getElementsByTagName('small'),
         document.getElementsByClassName('post'),
-        // document.getElementsByClassName('navbar-links'),
-        // document.getElementsByClassName('outside-links')
     ];
 
     const svgElements = document.querySelectorAll('#outside-links object');
