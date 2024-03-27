@@ -1,2 +1,2 @@
-.npy
-.gz
+*.npy
+*.gz
