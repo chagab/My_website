@@ -11,7 +11,7 @@ class Post(models.Model):
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(
-        upload_to=os.path.join('blog', 'media'),
+        upload_to=os.path.join('media', 'blog'),
         default=None,
         null=True,
         blank=True
