@@ -7,6 +7,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from plotly.offline import plot
 from s3fs.core import S3FileSystem
+import environ
 
 
 class BECFigure():
@@ -45,14 +46,28 @@ class BECFigure():
         return np.load(self.s3_fs.open(path))
 
     def getCredentials(self, credentials_file) -> dict:
-        credentials = {}
+        env = environ.Env(
+            # set casting, default value
+            # SECURITY WARNING: don't run with debug turned on in production!
+            DEBUG=(bool, True)
+        )
+        BASE_DIR = '/'
+        environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
-        with open(credentials_file, 'r') as file:
-            for line in file.readlines():
-                i = line.find('=')
-                key = line[:i].strip()
-                value = line[i+1:].strip()[1:-1]
-                credentials[key] = value
+        credentials = {
+            'SECRET_KEY': env('SECRET_KEY'),
+            'AWS_ACCESS_KEY_ID': env('AWS_ACCESS_KEY_ID'),
+            'AWS_SECRET_ACCESS_KEY': env('AWS_SECRET_ACCESS_KEY'),
+            'AWS_STORAGE_BUCKET_NAME': env('AWS_STORAGE_BUCKET_NAME'),
+            'AWS_S3_REGION_NAME': env('AWS_S3_REGION_NAME'),
+        }
+
+        # with open(credentials_file, 'r') as file:
+        #     for line in file.readlines():
+        #         i = line.find('=')
+        #         key = line[:i].strip()
+        #         value = line[i+1:].strip()[1:-1]
+        #         credentials[key] = value
 
         return credentials
 
