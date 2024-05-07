@@ -12,7 +12,7 @@ def frontpage(request):
     context = {
         'intro': intro,
         'posts': posts,
-        'plot_div_dark': plot_div_dark,
+        # 'plot_div_dark': plot_div_dark,
     }
     return render(request, 'blog/base.html', context)
 

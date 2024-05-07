@@ -14,8 +14,8 @@ class BECFigure():
 
     all = []
 
-    def __init__(self, credentials_path='.env') -> None:
-        credentials = self.getCredentials(credentials_path)
+    def __init__(self,) -> None:
+        credentials = self.getCredentials()
 
         self.s3_fs = S3FileSystem(
             key=credentials['AWS_ACCESS_KEY_ID'],
@@ -45,12 +45,8 @@ class BECFigure():
     def load(self, path) -> np.array:
         return np.load(self.s3_fs.open(path))
 
-    def getCredentials(self, credentials_file) -> dict:
-        env = environ.Env(
-            # set casting, default value
-            # SECURITY WARNING: don't run with debug turned on in production!
-            DEBUG=(bool, True)
-        )
+    def getCredentials(self) -> dict:
+        env = environ.Env()
         BASE_DIR = '/'
         environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -61,13 +57,6 @@ class BECFigure():
             'AWS_STORAGE_BUCKET_NAME': env('AWS_STORAGE_BUCKET_NAME'),
             'AWS_S3_REGION_NAME': env('AWS_S3_REGION_NAME'),
         }
-
-        # with open(credentials_file, 'r') as file:
-        #     for line in file.readlines():
-        #         i = line.find('=')
-        #         key = line[:i].strip()
-        #         value = line[i+1:].strip()[1:-1]
-        #         credentials[key] = value
 
         return credentials
 
